@@ -13,13 +13,13 @@ import static org.openqa.selenium.By.xpath;
 
 public class TestDemo {
     private static final String ONLINER = "https://onliner.by";
-    private static final By LOCATOR_HAIR_DRYERS = xpath("//span[text()='Фены']");
-    private static final By LOCATOR_CHOOSE_CURRENT_LOCATION = xpath("//div[@class='popover-style__content']/div[2]/span[1]");
-
     private static final String DYSON = "Dyson";
     private static final String ROWENTA = "Rowenta";
     private static final String BABYLISS = "BaByliss";
     private static final String BABYLISS_PRO = "BaByliss PRO";
+
+    private static final By LOCATOR_HAIR_DRYERS = xpath("//span[text()='Фены']");
+    private static final By LOCATOR_CHOOSE_CURRENT_LOCATION = xpath("//div[@class='popover-style__content']/div[2]/span[1]");
 
     @Test
     public void checkIfHairDryerIsSelected() {
@@ -61,7 +61,8 @@ public class TestDemo {
 
         List<String> listOfManufacturesHairDryer = new ArrayList<>();
         driver.findElements(xpath("//span[@class='schema-tags__text']"))
-                .forEach((WebElement questionEl) -> listOfManufacturesHairDryer.add(questionEl.getText()));
+                .forEach((WebElement questionEl) -> listOfManufacturesHairDryer
+                        .add(questionEl.getText()));
 
         assertThat(listOfManufacturesHairDryer.containsAll(manufacturesHairDryer)).isTrue();
 
