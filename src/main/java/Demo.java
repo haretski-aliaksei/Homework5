@@ -7,11 +7,11 @@ public class Demo {
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\drivers\\chromedriver_win32\\chromedriver.exe");
         ChromeDriver driver = new ChromeDriver();
         driver.get("https://onliner.by");
-        driver.findElement(By.xpath("//span[text()='Мыши']")).click();
+        driver.findElement(By.xpath("//span[text()='Фены']")).click();
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 250)");
-        driver.findElement(By.xpath("//input[@value='razer']/following-sibling::span")).click();
+        driver.findElement(By.xpath("//input[@value='philips']/following-sibling::span")).click();
 
-        if (driver.findElement(By.xpath("//input[@value='razer']")).isSelected()) {
+        if (driver.findElement(By.xpath("//input[@value='philips']")).isSelected()) {
             System.out.println("Still selected");
         }
 
